@@ -5,52 +5,93 @@
 <head>
     <meta charset="UTF-8">
     <title>Student Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" />
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">
+        <i class="fa-solid fa-graduation-cap fa-lg"></i> Student Management System</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav me-auto">
+
         <li class="nav-item">
-          <a class="nav-link active" href="#">Home
-            <span class="visually-hidden">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="#">
+              <i class="fa-solid fa-list fa-lg"></i> All Students</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link" href="#">
+              <i class="fa-solid fa-plus fa-lg"></i> Add Student</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">About</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
-          </div>
-        </li>
+
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-sm-2" type="search" placeholder="Search">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-      </form>
+
     </div>
   </div>
 </nav>
-<h1>
-    Hello, World!
-</h1>
+<div class="container-fluid">
+    <h3 class="m-4">All Students</h3>
+    <div class="row">
+        <div class="col-12">
+            {% if students %}
+                <div class="card bg-light ms-4 me-4 mb-4">
+  <div class="card-header">
+      <i class="fa-solid fa-list fa-lg"> Student Records</i>
+  </div>
+  <div class="card-body">
+      <p class="card-text">
+        <div class="table-responsive">
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Student Number</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email</th>
+        <th scope="col">Field of Study</th>
+        <th scope="col">GPA</th>
+        <th scope="col">Actions</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            {% for student in students %}
+                <tr>
+                    <td>{{ student.student_number }}</td>
+                    <td>{{ student.first_name }}</td>
+                    <td>{{ student.last_name }}</td>
+                    <td>{{ student.email }}</td>
+                    <td>{{ student.field_of_study }}</td>
+                    <td>{{ student.gpa }}</td>
+                    <td>ACTIONS</td>
+                </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+  </div>
+  </p>
+  </div>
+        </div>
+            {% else %}
+                <h5 class="alert alert-primary ms-4 me-4">No Student Records</h5>
+            {% endif %}
+
+    </div>
+</div>
+
+{#    footer section#}
+    <footer class="mt-auto mb-4">
+        <div class="text-center">
+            <span>
+                Copyright &copy; <script>document.write(new Date().getFullYear())</script> MaunduCyrus
+            </span>
+        </div>
+    </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
