@@ -67,7 +67,33 @@
                     <td>{{ student.email }}</td>
                     <td>{{ student.field_of_study }}</td>
                     <td>{{ student.gpa }}</td>
-                    <td>ACTIONS</td>
+                    <td>
+                        <button type="button" class="btn btn-success me-1" href="{% url 'view_student' student.id %}" data-bs-toggle="modal"
+                        data-bs-target="#myModal {{student.id}}"><i class="fa-solid fa-circle-info fa-lg"></i></button>
+
+{#                        Modal View Student#}
+                        <div class="modal" id="myModal{{student.id}}" tabindex="-1" aria-labelledby="myModalLabel1" aria-hidden="true">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title">Modal title</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true"></span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <p>Modal body text goes here.</p>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+
+                    </td>
                 </tr>
             {% endfor %}
 
