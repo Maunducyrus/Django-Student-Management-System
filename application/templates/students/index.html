@@ -76,17 +76,25 @@
                           <div class="modal-dialog" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h5 class="modal-title">Modal title</h5>
+                                <h5 class="modal-title">
+                                    Student: {{ student.first_name }} {{ student.last_name }}
+                                </h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true"></span>
                                 </button>
                               </div>
                               <div class="modal-body">
-                                <p>Modal body text goes here.</p>
+                                  <ul class="list-styled">
+                                      <li>Student Number: <strong>{{ student.student_number }}</strong></li>
+                                      <li>First Name: <strong>{{ student.first_name }}</strong></li>
+                                      <li>Last Name: <strong>{{ student.last_name }}</strong></li>
+                                      <li>Email: <strong>{{ student.email }}</strong></li>
+                                      <li>Field Of Study<strong>{{ student.field_of_study }}</strong></li>
+                                      <li>GPA<strong>{{ student.gpa }}</strong></li>
+                                  </ul>
                               </div>
                               <div class="modal-footer">
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                  <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                               </div>
                             </div>
                           </div>
